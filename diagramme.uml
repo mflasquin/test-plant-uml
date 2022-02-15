@@ -1,0 +1,57 @@
+@startuml 
+
+hide circle  
+
+class Article  { 
+
+    titre : varchar 
+
+    contenu : html 
+
+} 
+
+class Sujet { 
+
+    libellé : integer {unique} 
+
+} 
+
+class Journaliste { 
+
+    id : integer {unique} 
+
+    signature : varchar {unique} 
+
+    date_de_naissance : Date 
+
+} 
+
+class Personnalité { 
+
+    nom : varchar 
+
+    prénom : varchar  
+
+    nationalité : varchar 
+
+} 
+
+class Journal { 
+
+    titre : varchar {unique} 
+
+    adresse_web: URL 
+
+}  
+
+Article  "0..n" - "1..1" Sujet : relatif à >  
+
+Article  "1..n" -- "1..1" Journaliste : redige < 
+
+Article  "0..n" -- "1..1" Journal : Publié dans > 
+
+Journal  "1..n" -- "1..n" Journaliste : travaille pour < 
+
+Journaliste  "1..n" - "1..n" Personnalité : interview > 
+
+@enduml 
