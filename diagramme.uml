@@ -2,14 +2,6 @@
 
 hide circle  
 
-class Article  { 
-
-    titre : varchar 
-
-    contenu : html 
-
-} 
-
 class Sujet { 
 
     libellé : integer {unique} 
